@@ -1,45 +1,126 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-    <h1>Dashboard</h1>
 
-    <h3 id="welcomeUser">Selamat datang</h3>
+    <h2>Dashboard</h2>
 
-    <button onclick="goProfile()">Edit Profile</button>
-    <button onclick="logout()">Logout</button>
+    <h3>Selamat Datang, Admin</h3>
+
+    <div id="clock"></div>
+
+    <button onclick="toggleDarkMode()">
+        Dark Mode
+    </button>
+
+    <hr>
+
+    <h3>Profil Saya</h3>
+
+    <img id="profileImage"
+         src="https://via.placeholder.com/100"
+         width="100">
+
+    <br><br>
+
+    <input type="file"
+           id="profileInput"
+           accept="image/*">
+
+    <button onclick="changeProfile()">
+        Ganti Foto Profil
+    </button>
+
+    <p>Nama: Admin</p>
+    <p>Email: admin@gmail.com</p>
+
+    <hr>
+
+    <h3>Upload File</h3>
+
+    <input type="file" id="fileInput">
+    <button onclick="uploadFile()">Upload</button>
+
+    <ul id="fileList"></ul>
+
+    <hr>
+
+    <h3>Galeri Foto</h3>
+
+    <input type="file"
+           id="imageInput"
+           accept="image/*">
+
+    <button onclick="showImage()">
+        Tampilkan Foto
+    </button>
+
+    <br><br>
+
+    <img id="previewImage" width="250">
+
+    <hr>
+
+    <h3>Cari Catatan</h3>
+
+    <input type="text"
+           id="searchNote"
+           placeholder="Cari catatan..."
+           onkeyup="searchNote()">
+
+    <hr>
+
+    <h3>Statistik Catatan</h3>
+
+    <p>Total Catatan:
+        <span id="jumlahCatatan">0</span>
+    </p>
+
+    <hr>
+
+    <h3>Catatan Saya</h3>
+
+    <input type="text"
+           id="noteInput"
+           placeholder="Tulis catatan...">
+
+    <button onclick="addNote()">
+        Tambah Catatan
+    </button>
+
+    <ul id="noteList"></ul>
+
+    <hr>
+
+    <h3>Kalender</h3>
+
+    <input type="date">
+
+    <hr>
+
+    <button onclick="topFunction()">
+        Kembali ke Atas
+    </button>
+
+    <hr>
+
+    <button onclick="logout()">
+        Logout
+    </button>
+
 </div>
 
-<script>
-    // tampilkan username
-    let username = localStorage.getItem("username");
-
-    if (username) {
-        document.getElementById("welcomeUser").innerText =
-            "Selamat datang, " + username;
-    } else {
-        window.location.href = "index.html";
-    }
-
-    // ke profile
-    function goProfile() {
-        window.location.href = "profile.html";
-    }
-
-    // logout
-    function logout() {
-        localStorage.clear();
-        window.location.href = "index.html";
-    }
-</script>
+<footer>
+    <hr>
+    <p>© 2026 Website Dashboard - Dibuat oleh Saya</p>
+</footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>

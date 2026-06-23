@@ -1,38 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
+        <h2>Register Akun</h2>
 
-    <h2>Register Akun</h2>
+        <input
+            type="text"
+            id="newUser"
+            placeholder="Masukkan Username"
+        >
 
-    <input type="text"
-           id="newUser"
-           placeholder="Masukkan Username">
+        <input
+            type="password"
+            id="newPass"
+            placeholder="Masukkan Password"
+        >
 
-    <input type="password"
-           id="newPass"
-           placeholder="Masukkan Password">
+        <button onclick="register()">
+            Daftar
+        </button>
 
-    <button onclick="register()">
-        Daftar
-    </button>
+        <p id="registerMsg"></p>
 
-    <p id="registerMsg"></p>
+        <a href="index.html">
+            Sudah punya akun? Login
+        </a>
+    </div>
 
-    <br><br>
-
-    <a href="index.html">
-        Sudah punya akun? Login
-    </a>
-
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>

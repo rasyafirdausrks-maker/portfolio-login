@@ -142,3 +142,8 @@ function searchNote() {
         }
     }
 }
+
+window.onload = function() {
+
+    alert("Selamat datang di Dashboard!");
+}

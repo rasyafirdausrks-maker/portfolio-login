@@ -117,3 +117,28 @@ function showImage() {
 
     reader.readAsDataURL(file);
 }
+
+function searchNote() {
+
+    let input =
+        document.getElementById("searchNote")
+        .value.toLowerCase();
+
+    let li =
+        document.getElementById("noteList")
+        .getElementsByTagName("li");
+
+    for (let i = 0; i < li.length; i++) {
+
+        let txt = li[i].textContent;
+
+        if (txt.toLowerCase().indexOf(input) > -1) {
+
+            li[i].style.display = "";
+
+        } else {
+
+            li[i].style.display = "none";
+        }
+    }
+}

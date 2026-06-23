@@ -147,3 +147,11 @@ window.onload = function() {
 
     alert("Selamat datang di Dashboard!");
 }
+
+function topFunction() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}

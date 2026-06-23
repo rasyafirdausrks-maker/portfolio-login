@@ -74,7 +74,6 @@ setInterval(() => {
     let clock = document.getElementById("clock");
 
     if (clock) {
-
         clock.innerHTML = time;
     }
 
@@ -114,7 +113,7 @@ function showImage() {
 
         document.getElementById("previewImage").src =
             e.target.result;
-    }
+    };
 
     reader.readAsDataURL(file);
 }

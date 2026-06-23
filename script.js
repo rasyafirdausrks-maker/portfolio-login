@@ -36,3 +36,26 @@ function logout() {
     localStorage.removeItem("login");
     window.location.href = "index.html";
 }
+
+// Dark Mode
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
+
+// Jam Digital
+setInterval(() => {
+
+    let now = new Date();
+
+    let time =
+        now.getHours().toString().padStart(2, "0") + ":" +
+        now.getMinutes().toString().padStart(2, "0") + ":" +
+        now.getSeconds().toString().padStart(2, "0");
+
+    let clock = document.getElementById("clock");
+
+    if (clock) {
+        clock.innerHTML = time;
+    }
+
+}, 1000);

@@ -35,8 +35,7 @@ function uploadFile() {
     let li = document.createElement("li");
     li.textContent = file.name;
 
-    document.getElementById("fileList")
-        .appendChild(li);
+    document.getElementById("fileList").appendChild(li);
 }
 
 // Logout
@@ -70,11 +69,44 @@ setInterval(() => {
 
 }, 1000);
 
+// Ganti Foto Profil
+function changeProfile() {
+
+    let file = document.getElementById("profileInput").files[0];
+
+    if (!file) return;
+
+    let reader = new FileReader();
+
+    reader.onload = function(e) {
+
+        let image = e.target.result;
+
+        document.getElementById("profileImage").src = image;
+
+        localStorage.setItem("profileImage", image);
+    };
+
+    reader.readAsDataURL(file);
+}
+
+// Menampilkan Foto Profil yang Disimpan
+window.addEventListener("load", function() {
+
+    let savedImage = localStorage.getItem("profileImage");
+
+    if (savedImage) {
+
+        document.getElementById("profileImage").src = savedImage;
+    }
+
+    alert("Selamat datang di Dashboard!");
+});
+
 // Galeri Foto
 function showImage() {
 
-    let file =
-        document.getElementById("imageInput").files[0];
+    let file = document.getElementById("imageInput").files[0];
 
     if (!file) return;
 
@@ -102,8 +134,7 @@ function addNote() {
         input.value +
         ' <button onclick="hapusCatatan(this)">Hapus</button>';
 
-    document.getElementById("noteList")
-        .appendChild(li);
+    document.getElementById("noteList").appendChild(li);
 
     input.value = "";
 
@@ -158,46 +189,4 @@ function topFunction() {
         top: 0,
         behavior: "smooth"
     });
-}
-
-// Notifikasi Selamat Datang
-window.onload = function() {
-
-function changeProfile() {
-
-    let file =
-        document.getElementById("profileInput")
-        .files[0];
-
-    if (!file) return;
-
-    let reader = new FileReader();
-
-    reader.onload = function(e) {
-
-        document.getElementById("profileImage").src =
-            e.target.result;
-    };
-
-    reader.readAsDataURL(file);
-}
-    alert("Selamat datang di Dashboard!");
-}
-
-function changeProfile() {
-
-    let file =
-        document.getElementById("profileInput").files[0];
-
-    if (!file) return;
-
-    let reader = new FileReader();
-
-    reader.onload = function(e) {
-
-        document.getElementById("profileImage").src =
-            e.target.result;
-    };
-
-    reader.readAsDataURL(file);
 }

@@ -1,43 +1,28 @@
-// Tampilkan data lama
-window.onload = function () {
-    if (document.getElementById("editUser")) {
-        document.getElementById("editUser").value =
-            localStorage.getItem("username") || "";
-    }
-};
-
-// Simpan perubahan profile
-function saveProfile() {
-    let username = document.getElementById("editUser").value;
-    let password = document.getElementById("editPass").value;
+function register() {
+    let username = document.getElementById("newUser").value;
+    let password = document.getElementById("newPass").value;
 
     localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
 
-    if (password !== "") {
-        localStorage.setItem("password", password);
-    }
-
-    document.getElementById("profileMsg").innerHTML =
-        "Profile berhasil diperbarui!";
+    alert("Registrasi berhasil!");
+    window.location.href = "index.html";
 }
 
-// Tampilkan username di dashboard
-window.onload = function () {
+function login() {
+    let user = document.getElementById("user").value;
+    let pass = document.getElementById("pass").value;
 
-    let username = localStorage.getItem("username");
+    let savedUser = localStorage.getItem("username");
+    let savedPass = localStorage.getItem("password");
 
-    if (document.getElementById("welcomeUser")) {
-        document.getElementById("welcomeUser").innerHTML =
-            "Halo, " + username + "!";
+    if (user === savedUser && pass === savedPass) {
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Login gagal!");
     }
+}
 
-    if (document.getElementById("editUser")) {
-        document.getElementById("editUser").value =
-            username || "";
-    }
-};
-
-// Logout
 function logout() {
     window.location.href = "index.html";
 }

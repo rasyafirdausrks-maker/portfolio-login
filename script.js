@@ -2,10 +2,15 @@ function register() {
     let username = document.getElementById("newUser").value;
     let password = document.getElementById("newPass").value;
 
+    if (username === "" || password === "") {
+        alert("Isi semua data!");
+        return;
+    }
+
     localStorage.setItem("username", username);
     localStorage.setItem("password", password);
 
-    alert("Registrasi berhasil!");
+    alert("Register berhasil!");
     window.location.href = "index.html";
 }
 
@@ -19,7 +24,8 @@ function login() {
     if (user === savedUser && pass === savedPass) {
         window.location.href = "dashboard.html";
     } else {
-        alert("Login gagal!");
+        document.getElementById("loginMsg").innerText =
+            "Login gagal! Username atau password salah";
     }
 }
 

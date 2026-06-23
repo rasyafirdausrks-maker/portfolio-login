@@ -183,3 +183,21 @@ function changeProfile() {
 }
     alert("Selamat datang di Dashboard!");
 }
+
+function changeProfile() {
+
+    let file =
+        document.getElementById("profileInput").files[0];
+
+    if (!file) return;
+
+    let reader = new FileReader();
+
+    reader.onload = function(e) {
+
+        document.getElementById("profileImage").src =
+            e.target.result;
+    };
+
+    reader.readAsDataURL(file);
+}

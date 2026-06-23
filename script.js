@@ -99,3 +99,22 @@ function addNote() {
 
     input.value = "";
 }
+
+// Galeri Foto
+function showImage() {
+
+    let file =
+        document.getElementById("imageInput").files[0];
+
+    if (!file) return;
+
+    let reader = new FileReader();
+
+    reader.onload = function(e) {
+
+        document.getElementById("previewImage").src =
+            e.target.result;
+    }
+
+    reader.readAsDataURL(file);
+}

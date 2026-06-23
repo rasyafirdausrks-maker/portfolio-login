@@ -4,19 +4,46 @@ function login() {
     let user = document.getElementById("username").value;
     let pass = document.getElementById("password").value;
 
-    if (user === "admin" && pass === "12345") {
+    let savedUser =
+        localStorage.getItem("username") || "admin";
+
+    let savedPass =
+        localStorage.getItem("password") || "12345";
+
+    if (user === savedUser && pass === savedPass) {
 
         localStorage.setItem("login", "true");
         window.location.href = "dashboard.html";
 
     } else {
 
-        document.getElementById("msg").innerText =
-            "Username atau password salah!";
+        document.getElementById("msg").innerHTML =
+            "Username atau Password salah!";
     }
 }
 
-// Cek Login
+// Register
+function register() {
+
+    let user = document.getElementById("newUser").value;
+    let pass = document.getElementById("newPass").value;
+
+    if (user === "" || pass === "") {
+
+        document.getElementById("registerMsg").innerHTML =
+            "Semua kolom harus diisi!";
+
+        return;
+    }
+
+    localStorage.setItem("username", user);
+    localStorage.setItem("password", pass);
+
+    document.getElementById("registerMsg").innerHTML =
+        "Registrasi berhasil! Silakan login.";
+}
+
+// Cek Login Dashboard
 if (window.location.pathname.includes("dashboard")) {
 
     if (localStorage.getItem("login") !== "true") {
@@ -90,17 +117,21 @@ function changeProfile() {
     reader.readAsDataURL(file);
 }
 
-// Menampilkan Foto Profil yang Disimpan
+// Saat halaman dibuka
 window.addEventListener("load", function() {
 
     let savedImage = localStorage.getItem("profileImage");
 
-    if (savedImage) {
+    if (savedImage &&
+        document.getElementById("profileImage")) {
 
-        document.getElementById("profileImage").src = savedImage;
+        document.getElementById("profileImage").src =
+            savedImage;
     }
 
-    alert("Selamat datang di Dashboard!");
+    if (window.location.pathname.includes("dashboard")) {
+        alert("Selamat datang di Dashboard!");
+    }
 });
 
 // Galeri Foto

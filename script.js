@@ -1,34 +1,33 @@
-function register() {
-    let username = document.getElementById("newUser").value;
-    let password = document.getElementById("newPass").value;
+function changeProfile() {
 
-    if (username === "" || password === "") {
-        alert("Isi semua data!");
-        return;
+    let file =
+        document.getElementById("profileInput").files[0];
+
+    if (!file) return;
+
+    let reader = new FileReader();
+
+    reader.onload = function(e) {
+
+        let image = e.target.result;
+
+        document.getElementById("profileImage").src =
+            image;
+
+        localStorage.setItem("profileImage", image);
+    };
+
+    reader.readAsDataURL(file);
+}
+
+window.addEventListener("load", function() {
+
+    let savedImage =
+        localStorage.getItem("profileImage");
+
+    if (savedImage) {
+
+        document.getElementById("profileImage").src =
+            savedImage;
     }
-
-    localStorage.setItem("username", username);
-    localStorage.setItem("password", password);
-
-    alert("Register berhasil!");
-    window.location.href = "index.html";
-}
-
-function login() {
-    let user = document.getElementById("user").value;
-    let pass = document.getElementById("pass").value;
-
-    let savedUser = localStorage.getItem("username");
-    let savedPass = localStorage.getItem("password");
-
-    if (user === savedUser && pass === savedPass) {
-        window.location.href = "dashboard.html";
-    } else {
-        document.getElementById("loginMsg").innerText =
-            "Login gagal! Username atau password salah";
-    }
-}
-
-function logout() {
-    window.location.href = "index.html";
-}
+});

@@ -59,3 +59,21 @@ setInterval(() => {
     }
 
 }, 1000);
+
+function addNote() {
+
+    let input = document.getElementById("noteInput");
+
+    if (input.value === "") return;
+
+    let li = document.createElement("li");
+
+    li.innerHTML =
+        input.value +
+        ' <button onclick="this.parentElement.remove()">Hapus</button>';
+
+    document.getElementById("noteList")
+        .appendChild(li);
+
+    input.value = "";
+}

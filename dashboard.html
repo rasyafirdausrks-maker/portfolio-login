@@ -38,9 +38,27 @@
 
     <hr>
 
+    <h3>Galeri Foto</h3>
+
+    <input type="file"
+           id="imageInput"
+           accept="image/*">
+
+    <button onclick="showImage()">
+        Tampilkan Foto
+    </button>
+
+    <br><br>
+
+    <img id="previewImage"
+         width="250">
+
+    <hr>
+
     <h3>Catatan Saya</h3>
 
-    <input type="text" id="noteInput"
+    <input type="text"
+           id="noteInput"
            placeholder="Tulis catatan...">
 
     <button onclick="addNote()">
@@ -51,7 +69,9 @@
 
     <hr>
 
-    <button onclick="logout()">Logout</button>
+    <button onclick="logout()">
+        Logout
+    </button>
 
 </div>
 
